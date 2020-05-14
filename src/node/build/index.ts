@@ -71,7 +71,8 @@ export async function build(options: BuildConfig = {}): Promise<BuildResult> {
     write = true,
     minify = true,
     silent = false,
-    sourcemap = false
+    sourcemap = false,
+    shouldPreload = null
   } = options
 
   let spinner: Ora | undefined
@@ -98,7 +99,8 @@ export async function build(options: BuildConfig = {}): Promise<BuildResult> {
     publicBasePath,
     assetsDir,
     assetsInlineLimit,
-    resolver
+    resolver,
+    shouldPreload
   )
 
   // lazy require rollup so that we don't load it when only using the dev server
